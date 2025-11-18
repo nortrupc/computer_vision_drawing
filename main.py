@@ -103,7 +103,7 @@ while True:
             if is_inside_button(index_x, index_y, button_x1, button_y1, button_x2, button_y2):
                 canvas = np.zeros((480, 640, 3), dtype=np.uint8)
                 print("Canvas cleared!")
-                time.sleep(.5)
+                time.sleep(.1)
 
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
         combined_frame = cv2.add(frame, canvas)
@@ -115,7 +115,7 @@ while True:
                 print("Image saved successfully!")
             else:
                 print("Failed to save image.")
-            time.sleep(.5)
+            time.sleep(.1)
 
         cv2.imshow("Finger Drawing", combined_frame)
 
