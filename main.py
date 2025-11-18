@@ -20,8 +20,8 @@ button_x1, button_y1 = 10, 10
 button_x2, button_y2 = 150, 60  
 button_color = (0, 255, 0)
 
-button_x1_2, button_y1_2 = 10, 100   
-button_x2_2, button_y2_2 = 150, 160  
+button_x1_2, button_y1_2 = 500, 10   
+button_x2_2, button_y2_2 = 640, 60  
 button_color_2 = (0, 255, 0)
 
 def calculate_distance(x1, y1, x2, y2):
@@ -98,12 +98,12 @@ while True:
                 cv2.line(canvas, (prev_x, prev_y), (index_x, index_y), (0, 0, 255), 5)
                 prev_x, prev_y = index_x, index_y
             else:
-                
                 prev_x, prev_y = 0, 0
 
             if is_inside_button(index_x, index_y, button_x1, button_y1, button_x2, button_y2):
                 canvas = np.zeros((480, 640, 3), dtype=np.uint8)
                 print("Canvas cleared!")
+                time.sleep(.5)
 
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
         combined_frame = cv2.add(frame, canvas)
@@ -115,6 +115,7 @@ while True:
                 print("Image saved successfully!")
             else:
                 print("Failed to save image.")
+            time.sleep(.5)
 
         cv2.imshow("Finger Drawing", combined_frame)
 
