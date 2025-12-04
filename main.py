@@ -110,7 +110,8 @@ while True:
 
         if is_inside_button(index_x, index_y, button_x1_2, button_y1_2, button_x2_2, button_y2_2) and not drawing_mode:
             print("Detecting...")
-            success = cv2.imwrite("detected_image.png", canvas)
+            success = cv2.imwrite("detected_image.png", canvas
+            )
             if success:
                 print("Image saved successfully!")
             else:
